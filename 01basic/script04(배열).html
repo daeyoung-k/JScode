@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 배열(리스트와 동일) */
+        // var arr = [];
+        var arr = [1,2,3];
+        arr[0] = 10;
+        arr[1] = 20;
+
+        console.log(arr);
+        console.log(arr[0], arr[1], arr[2]);
+
+        var arr2 = ["안녕", "헬로", "니하오"];
+        console.log(arr2);
+
+        console.log("------------------------------------------");
+        /* JS의 배열은 데이터타입을 섞어서 사용할 수도 있습니다. */
+        var arr3 = [1,2,3,4,5, "hello"];
+        console.log(arr3);
+
+        /* 인덱스 번호를 통해 값을 저장할 때 비어있는 인덱스는 빈공간으로 들어갑니다 */
+        arr3[10] = 100;
+        console.log(arr3);
+
+        
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

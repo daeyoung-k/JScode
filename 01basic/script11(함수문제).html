@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button type="button" onclick="check()">클릭</button>
+    <button type="button" onclick="method(10)">홀짝수를 판별하는 함수</button>
+
+    <script>
+        function check(){
+            confirm("자바스크립트의 일반함수");
+        }
+
+        var method = function(x){
+            if(x % 2 == 0){
+                confirm("짝수");
+            }else{
+                confirm("홀수");
+            }
+        }
+        /*익명함수, 일반함수를 각각 만들어서 확인*/
+        var point = function(a,b,c,d){ //익명함수는 호이스팅이 안됩니다(함수 먼저 만들고 호출을 해야 동작가능)
+            return a + "님의 평균은:" + (b+c+d)/3 ;
+        }
+        console.log( point("홍길동", 88, 90, 90));
+
+        // function point(a, b, c, d){ //일반함수는 호이스팅 가능( 호출 보다 아래에 있어도 동작가능)
+        //    return a + "님의 평균은:" + (b+c+d)/3 ;                                  
+        // }
+        
+        
+
+
+
+
+
+    </script>
+
+</body>
+</html>

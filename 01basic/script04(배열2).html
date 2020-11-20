@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        //배열을 생성하는 두번째 방법
+        var arr = new Array(); //var arr = []
+        console.log(arr);
+
+        var arr2 = new Array(10); //길이가 10인 빈공간의 배열
+        console.log(arr2);
+
+        var arr3 = new Array('a', 'b', 'c', 'd', 'e'); //길이가 5이면서 초기화
+        console.log(arr3);
+
+        //배열을 다루는 다양한 메서드가 존재합니다
+        //lengh - 배열의 길이
+        var arr = new Array('a','b','c','d','e');
+        console.log(arr.length)
+
+        //push() - 마지막에 추가
+        arr.push(100);
+        arr.push(200);
+        console.log(arr);
+
+        //pop() - 마지막에 요소 제거
+        arr.pop();
+        console.log(arr);
+
+        //shift() - 첫번째 요소 제거
+        arr.shift();
+        console.log(arr)
+
+        //splice() - 배열의 중간에 추가, 삭제
+        //splice(index, 삭제개수)
+        arr.splice(1, 1); //1번 index에서 1개 삭제
+        console.log(arr);
+        arr.splice(1, 2); //1번 index에서 2개 삭제
+        console.log(arr);
+        //splice(index, 삭제개수, +추가할 값)
+        arr.splice(1, 0, "park", "kim", "lee");
+        console.log(arr);
+
+        //숫자는 오름차순, 문자는 사전등재 순서
+        arr.sort()
+        console.log(arr);
+
+        //내림차순 정렬
+        arr.reverse();
+        console.log(arr);
+
+        //탐색 - indexof(값)
+        var find = arr.indexOf("a");
+        console.log("a가 존재하는 위치:" , find);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /* 선언적 함수 vs 익명함수 */
+        //func1(); //호이스팅(당겨호출하기) - 선언적 함수에서만 사용이 가능합니다.
+        //func2();
+        //a(); //에러
+        //b(); //에러 
+
+
+        function func1(){
+            console.log("func1실행");
+        }
+        
+        function func2(){
+            console.log("func2실행");
+        }
+        
+        //함수자체를 변수에 저장할 수 있습니다.
+        var a = func1;
+        a();
+        func1();
+
+        //익명함수 - 변수에 함수를 저장해서, 마치 함수처럼 쓰도록 만들어 줍니다(호이스팅이 안됩니다)
+        var b = function(){
+            console.log("func3실행")
+        }
+        b(); //익명함수 호출
+
+
+    </script>
+</body>
+</html>
