@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //JSON파싱 - 원격에 있는 컴퓨터와 통신과정에서 데이터를 주고 받을때
+        //문자열의 형태로 주고 받게 됩니다.
+        var data = [
+            {id: 'kkk123', title: 'java', content: 'good'},
+            {id: 'aaa123', title: 'jsp', content: 'nice'},
+            {id: 'ddd123', title: 'js', content: 'soso'},
+        ]
+
+        // console.log(typeof data, data)
+        // console.log(typeof JSON.stringify(data))
+        var result = JSON.stringify(data) //제이슨 -> 문자열로 변경
+        console.log(result)
+
+        var result2 = JSON.parse(result); //문자열을 -> 제이슨
+        console.log(result2)
+
+        // var x = '{id : "kkk123"}'; //문자열
+        // 단, 문자열을 JSON형식으로 변경할 떄, 엄격한 규칙을 지키는데
+        // key, value가 "" 처리되어야 합니다. 
+        // var result3 = JSON.parse('{id : "kkk123"}'); //에러
+        var result3 = JSON.parse('{"id" : "kkk123"}');
+
+    </script>
+</body>
+</html>
