@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" id="bt">표준이벤트</button>
+
+    <script>
+        var bt = document.getElementById("bt");
+        //1 첫번째 방법
+        bt.addEventListener("click", function(){
+            alert("이벤트 리스너")
+        })
+        
+        //2 두번째 방법
+        // bt.addEventListener("click", view1); //on과 ()를 적지 않습니다
+        // function view1() {
+        //     alert("이벤트 리스터")
+        // }        
+    </script>
+    <hr/>
+    <script>
+        window.onload = function(){
+
+            //이벤트 리스너 기법은 - 동일 이벤트에 대해서 여러 함수를 연결 해줄 수 있습니다.
+            //원하는 시점에 이벤트를 연결해 줄 수도 있습니다.
+            var bt2 = document.getElementById("bt2");
+            bt2.addEventListener("click", test1); //1번 함수 연결
+            bt2.addEventListener("click", test2); //2번 함수 연결
+
+            //기본이벤트 형식은 동일이벤트에 대해서 여러개를 연결할 수 없습니다.
+            // bt2.onclick = test1;
+            // bt2.onclick = test2;
+        }
+
+        function test1(){
+            console.log("1번 이벤트")
+        }
+        
+        function test2(){
+            console.log("2번 이벤트")
+        }
+
+
+    </script>
+    <button type="button" id="bt2">표준이벤트2</button>
+</body>
+</html>

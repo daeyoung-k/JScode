@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- 1. checkbox 버튼을 클릭했을 때 '1~4번 조항에 동의 했습니다' 문구띄우고 value값을 확인(인라인 이벤트) -->
+    <input type="checkbox" onclick="check(this)" value="1">조항1
+    <input type="checkbox" onclick="check(this)" value="2">조항2
+    <input type="checkbox" onclick="check(this)" value="3">조항3
+    <input type="checkbox" onclick="check(this)" value="4">조항4
+
+    <hr/>
+    <!-- 2. 기억하기 버튼을 클릭했을 때 input태그의 공백여부, 체크박스 여부를 확인 -->
+    ID:<input type="text" id="id">
+    기억하기<input type="checkbox" id="remember" checked> <br/>
+
+    <button type="button" id="btn">확인</button>
+
+    <script>    
+        //1번문제
+        function check(a){            
+            alert("약관에 동의하였습니다"+ a.value)
+            console.log(a.value)
+        }
+
+        //2번문제
+        var id =document.getElementById("id");
+        var remember =document.getElementById("remember");
+        var btn =document.getElementById("btn");
+
+        console.log(id)
+        console.log(remember)
+        console.log(btn)
+
+        btn.onclick = function(){
+            //checkbox에 체크여부는 checked
+            console.log("value값: " + id.value)
+            console.log("체크여부: " + remember.checked)
+        };
+    </script>
+</body>
+</html>

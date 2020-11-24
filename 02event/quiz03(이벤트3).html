@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        window.onload = function(){
+
+        var len = document.getElementById("lenguage");
+        var title = document.getElementById("title");
+
+        len.onchange = function(){
+            console.log(lenguage.value)
+
+            var a = len.value;
+            if(a === "hello"){
+                title.innerHTML = "영어 입니다";
+            }else if(a === "안녕"){
+                title.innerHTML = "한국어 입니다";
+            }else if(a === "니하오"){
+                title.innerHTML = "중국어 입니다";
+            }else {
+                title.innerHTML = "단어를 선택하세요";
+            }
+        }
+        
+        }
+
+    </script>
+    <h2 id="title">단어를 선택하세요</h2>
+
+    <p>(select에서 value속성은 선택된 값을 의미합니다) </p>
+    <select  id="lenguage">
+        <option >선택</option>
+        <option >안녕</option>
+        <option >hello</option>
+        <option >니하오</option>
+    </select>
+</body>
+</html>

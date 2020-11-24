@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>자바 스크립트</h2>
+    <input type="text" id="num" value = "0" >
+    <button type="button" onclick="calc(this)">+</button>
+    <button type="button" onclick="calc(this)">-</button>
+
+    <script>
+        var num = document.getElementById("num");
+        console.log(typeof num.value)
+        function calc(a){                   
+            
+            console.log(typeof a)
+            if(a.innerHTML === "+"){
+                num.value ++;
+            }else if(num.value <= 0){
+                alert("0이하는 가능하지 않습니다.")
+                num.value == 0;
+            }else{
+                num.value --;
+            }
+        }
+
+        
+
+    </script>
+
+
+</body>
+</html>
