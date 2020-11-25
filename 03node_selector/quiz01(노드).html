@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    좌석:
+    <input type="checkbox" name="seat" value="1" >1
+    <input type="checkbox" name="seat" value="2" >2
+    <input type="checkbox" name="seat" value="3" >3
+    <input type="checkbox" name="seat" value="4" >4
+    <input type="checkbox" name="seat" value="5" >5
+    <input type="checkbox" name="seat" value="6" >6
+    <input type="checkbox" name="seat" value="7" >7
+    <input type="checkbox" name="seat" value="8" >8
+    <br/>
+    <button type="button" id="btn">예약</button>
+
+    <script>
+        //예약 버튼을 눌렀을 때 좌석이 최소 한개이상 체크되어 있지 않다면, 경고창을 띄워주는 코드를 작성.
+        //또는 체크된 값은 JSON형태의 배열로 포장해주세요.
+
+        var btn = document.getElementById("btn");
+
+        btn.onclick = function(){
+        var seat = document.getElementsByName("seat");
+        console.log(seat.checked)
+        var arr = new Array();
+        var bool = true;
+            for(var i = 0; i < seat.length; i++){
+                if(seat[i].checked){                    
+                    arr.push(seat[i].value);    
+                    bool = false;
+                }                
+            }
+            if(bool){
+                alert("좌석 체크는 필수 입니다");
+                return;
+            }else{
+                var data = JSON.stringify({data:arr});
+                console.log(data)
+            }
+        }
+    </script>
+
+    <script>
+        // var btn = document.getElementById("btn");
+        // btn.onclick = function(){
+
+        //     var seat = document.querySelectorAll("input[name='seat']");
+        //     var bool = true;
+
+        //     for(var i = 0; i < seat.length; i++){
+        //         if(seat[i].checked)
+        //     }
+
+
+        // }
+
+    </script>
+
+
+</body>
+</html>

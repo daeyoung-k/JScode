@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>    
+    <style type="text/css">  
+        .Bigbox {
+            text-align: center;   
+        }
+        .midbox {    
+            width: 635px; 
+            height: 220;       
+            margin: 0 auto;            
+            border: 1px solid #777;
+            padding: 5px;            
+        }
+        .smbox{            
+            padding: 5px;
+            overflow: hidden;           
+            
+            }
+        .box1 {
+            float: left;
+            width: 300px;
+            margin: 0 5px;
+        }
+        .box1 img{width: 100%; height: 100%;}
+        .box2 {
+            float: left; 
+            width: 300px; 
+            height: 200px; 
+            border: 1px solid #777;
+            margin: 0 5px;
+        }
+        
+    </style>
+</head>
+<body id="box">
+    
+    <section>
+        <div class="Bigbox">
+            <h2 id="head1">style속성 활용하기</h2>
+            <button type="button" id="btn">어둡게</button>
+            <button type="button" id="btn1">밝게</button>
+            <hr/>
+            <div class="midbox">
+                <div class="smbox">                
+                    <div class="box1">
+                        <img src="img/1.jpg" width="300" alt="">
+                    </div>
+                    <div class="box2">
+                        자바스크립트는 객체 기반의 스크립트 프로그래밍 언어이다. 이언어는 웹 브라우저 내에서 주로 사용하며, 다른 응용 프로그램의 내장 객체에도 접근할 수 있는 기능을 가지고 있다. 또한 NOde.js와 같은 런타임 환경과 같이 서버 사이드 네트워크 프로그래밍에도 사용되고 있다.
+                        
+                    </div> 
+                </div>          
+            </div>
+        </div>
+    </section>
+
+    <script>
+        var btn = document.getElementById("btn");
+        var btn1 = document.getElementById("btn1");
+        
+        btn.onclick = function(){
+            var box = document.getElementById("box");
+            var head1 = document.getElementById("head1");
+            var box2 = document.querySelector(".box2");
+            box.style.backgroundColor = "black";
+            head1.style.color = "white";
+            box2.style.color = "white";
+        }
+        btn1.onclick = function(){
+            var box = document.getElementById("box");
+            var head1 = document.getElementById("head1");
+            var box2 = document.querySelector(".box2");
+            box.style.backgroundColor = "white";
+            head1.style.color = "black";
+            box2.style.color = "black";
+        }
+
+    </script>
+
+
+</body>
+</html>
