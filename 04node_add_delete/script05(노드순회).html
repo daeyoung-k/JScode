@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table{border-spacing: 0; border-collapse: collapse;}
+        th, td {border: 1px solid black;}
+    </style>
+</head>
+<body>
+    
+    <table>
+        <thead>
+            <th>이동</th>
+            <th>번호</th>
+            <th>이름</th>
+            <th>내용</th>
+            <th>날짜</th>
+        </thead>
+        <tbody class="table">
+            <tr>
+                <td><button type="button" onclick="down(this)">↓</button><button type="button" onclick="up(this)">↑</button></td>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>hello world</td>
+                <td>2020-01-01</td>
+            </tr>
+            <tr>
+                <td><button type="button" onclick="down(this)">↓</button><button type="button" onclick="up(this)">↑</button></td>
+                <td>2</td>
+                <td>홍길자</td>
+                <td>hi world</td>
+                <td>2020-02-02</td>
+            </tr>
+            <tr>
+                <td><button type="button" onclick="down(this)">↓</button><button type="button" onclick="up(this)">↑</button></td>
+                <td>3</td>
+                <td>홍길순</td>
+                <td>bye world</td>
+                <td>2020-03-03</td>
+            </tr>
+            <tr>
+                <td><button type="button" onclick="down(this)">↓</button><button type="button" onclick="up(this)">↑</button></td>
+                <td>4</td>
+                <td>홍길용</td>
+                <td>goodbye world</td>
+                <td>2020-04-04</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        function down(node){
+            //부모, 이웃노드를 선택하는 방법이 2가지 씩 있는데, 이름에 Element가 포함된
+            //속성은 'text'나 '공백' 을 제외하고 선택을 해줌.
+            //그래서 Element이름이 붙어잇는 속성을 사용해주면 됩니다.
+            /*
+            console.dir(node);
+            console.log(node.parentElement); //부모노드
+            console.log(node.parentNode); //부모노드
+            console.log(node.nextElementSibling); //다음형제노드
+            console.log(node.nextSibling); //다음형제노드
+            console.log(node.previousElementSibling); //이전
+            console.log(node.previousSibling);
+            console.log(node.firstChild);
+            console.log(node.firstElementChild);
+            */
+            var table = document.querySelector(".table");
+            var current = node.parentElement.parentElement; //tr - 기준노드
+            var next = current.nextElementSibling; //tr - 다음행
+
+            if(next === null){
+                alert("다음 행이 존재하지 않습니다.");
+                return;
+            }
+
+            table.insertBefore(next, current); //(옮길노드, 기준노드) - 기준노드 앞에, 옮길노드를 추가
+            console.log(next)
+        }
+
+        function up(node){
+            var table = document.querySelector(".table");
+            var current = node.parentElement.parentElement;
+            var prev = current.previousElementSibling;
+
+            if(prev === null){
+                alert("이전 행이 존재하지 않습니다")
+                return;
+            }
+
+            table.insertBefore(current, prev);
+            console.log(prev)            
+
+        }
+    </script>
+
+</body>
+</html>

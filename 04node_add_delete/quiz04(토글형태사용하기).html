@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>    
+    <title>Document</title>
     <style type="text/css">  
         .conter{text-align: center;}
         .content{
@@ -31,15 +31,27 @@
             width: 100%;
             height: 100%;
         }
+        .content .left {
+            position: relative;
+        }
+        .content .left .inner {
+           
+        }
+        .content .left .text{
+            position: absolute; left: 5px; top: 5px;
+            opacity: 0;
+           
+
+        }
     </style>
 </head>
 <body>
-    
     <header>
         <div class="conter">
             <h2>style속성 활용하기</h2>
-            <button type="button" id="btn">어둡게</button>
-            <button type="button" id="btn1">밝게</button>
+            <button type="button" class="dark">어둡게보기</button>
+            <button type="button" class="name">이름보기</button>
+            <button type="button" class="write">메모장모드</button>
             <hr/>
         </div>
     </header>
@@ -47,7 +59,10 @@
             <div class="content">
                 <div class="left">                
                     <div class="inner">
-                        <img src="img/1.jpg" alt="test">
+                        <img src="profile.png" alt="test">
+                    </div>
+                    <div class="text">
+                        <textarea name="" id="" cols="25" rows="10"></textarea>
                     </div>
                 </div>
                 <div class="right">        
@@ -61,30 +76,34 @@
     </section>
 
     <script>
-        var btn = document.getElementById("btn");
-        var btn1 = document.getElementById("btn1");
+        var dark = document.querySelector(".dark")
+        dark.onclick = function(){
+
+            if(dark.className === "dark"){
+                document.body.style.backgroundColor = "black";
+                var all = document.querySelectorAll("h2, p, a");
+                all[0].style.color = "white";
+                all[1].style.color = "white";
+                all[2].style.color = "white";
+                dark.className = "bright";
+                dark.innerHTML = "밝게 보기";
+                return;
+            }else{
+                document.body.style.backgroundColor = "white";
+                var all = document.querySelectorAll("h2, p, a");
+                all[0].style.color = "black";
+                all[1].style.color = "black";
+                all[2].style.color = "black";
+                dark.className = "dark";
+                dark.innerHTML = "어둡게보기";
+                return;
+            }            
+        }
         
-        btn.onclick = function(){
-            //body접근 방법 1
-            var all = document.querySelector("body");
-            all.style.backgroundColor = "black";
+        
 
-            var tag = document.querySelectorAll("h2, p, a");
-            tag[0].style.color = "white";
-            tag[1].style.color = "white";
-            tag[2].style.color = "white";
-        }
-        btn1.onclick = function(){
-            //body접근 방법 2
-            document.body.style.backgroundColor = "white";            
-            var tag = document.querySelectorAll("h2, p, a");
-            tag[0].style.color = "black";
-            tag[1].style.color = "black";
-            tag[2].style.color = "black";
-        }
-
+            
+        
     </script>
-
-
 </body>
 </html>

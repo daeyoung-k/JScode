@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2>아직 삭제는 구현하지 마세요(할일목록만들기)</h2>
+
+    <form class="nameForm">
+        <h3 class="nameTitle"></h3> <!-- 숨겨놓을 영역 -->
+        <input type="text" placeholder="이름을 입력하세요" id="name">
+        <button type="button" id="btn">확인</button>
+    </form>
+    <form class="todoForm">
+        <input type="text" placeholder="할일을 적으세요" id="job">
+        <button type="button" id="btn">확인</button>
+    </form>
+
+    <ul class="todoList">
+
+    </ul>
+
+    <script>
+        var nf = document.querySelector(".nameForm");
+        nf.btn.onclick = function(){
+            var text = nf.name.value + " 님 안녕하세요";
+            var title = document.querySelector(".nameTitle");              
+            title.innerHTML = text; 
+            nf.name.style.display = "none";  
+            nf.btn.style.display = "none";         
+        }
+        var tf = document.querySelector(".todoForm");
+        tf.btn.onclick = function(){           
+            var text1 = document.createTextNode(tf.job.value + " ");
+            var li = document.createElement("li");
+            var button = document.createElement("button");
+            button.innerHTML = "X";
+            button.addEventListener("click", deleteTodo); //이벤트 등록
+
+            li.appendChild(text1);
+            li.appendChild(button);
+
+            tf.job.value = "";
+            
+            document.querySelector(".todoList").appendChild(li);
+        }
+
+        function deleteTodo(){
+            this.parentElement.remove();
+        }
+
+    </script>
+</body>
+</html>
