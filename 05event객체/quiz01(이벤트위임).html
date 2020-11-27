@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .img li{display: inline;}
+    </style>
+</head>
+<body>
+    <h2>이벤트 속성을 이용해서 다음을 만들어 보세요. 다 만들었다면 위임방식으로 변경하세요</h2>
+    <ul class="img">
+        <li><img src="img/1.jpg" width="100px"></li>
+        <li><img src="img/2.jpg" width="100px"></li>
+        <li><img src="img/3.jpg" width="100px"></li>
+        <li><img src="img/4.jpg" width="100px"></li>           
+    </ul>
+
+    <div class="imgbox">결과:
+        <img src="img/1.jpg" width="300px">
+    </div>
+
+    <script>
+        var img = document.querySelector(".img");
+        var imgbox = document.querySelector(".imgbox img")
+        img.onclick = function(e){
+            if(e.target.nodeName !== "IMG") return;
+            imgbox.src = e.target.src;             
+            console.log(e.target.nodeName)    
+        }
+        
+        
+    </script>
+    <!-- <script> //선생님 풀이
+        var img = document.querySelectorAll(".img li img"); //img들
+        var imgbox = document.querySelector(".imgbox img"); //결과 img
+        for(var i = 0; i < img.length; i++){
+            img[i].addEventListener("click", handleImg);
+        }
+
+        console.log(imgbox);
+        
+        function handleImg(e){
+            imgbox.src = e.target.src;
+            
+        }
+        var imgbox = document.querySelector(".imgbox img"); //결과 img
+        var imgList = document.querySelector(".img"); //부모태그
+        imgList.onclick = function(e){
+            if(e.target.tagName != "IMG") return;
+            imgbox.src = e.target.src;
+        }
+        
+    </script> -->
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {border-spacing: 0; border-collapse: collapse; width: 100%; text-align: center;}
+        th, td{border: 1px solid black;}
+    </style>
+</head>
+<body>
+    
+    <table class="Bigbox">
+        <thead>
+            <th>번호</th>
+            <th>과정명</th>
+            <th>담당교수</th>
+            <th>관리</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>강남응용자바</td>
+                <td>홍길동</td>
+                <td>
+                    <button type="button" class="test info">시험기본정보</button>
+                    <button type="button" class="test Q">시험출제</button>
+                    <button type="button" class="test result">시험결과</button>
+                    <button type="button" class="test sexual">성적관리</button>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>종로응용자바</td>
+                <td>홍길동</td>
+                <td>
+                    <button type="button" class="test info">시험기본정보</button>
+                    <button type="button" class="test Q">시험출제</button>
+                    <button type="button" class="test result">시험결과</button>
+                    <button type="button" class="test sexual">성적관리</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        var Bigbox = document.querySelector(".Bigbox");
+        Bigbox.onclick = function(){
+            if(event.target.nodeName !== "BUTTON") return;
+            console.log(event.target)
+
+            if(event.target.classList.contains("info")){
+                console.log("시험기본정보...");
+            }else if(event.target.classList.contains("Q")){
+                console.log("시험출제...");
+            }else if(event.target.classList.contains("result")){
+                console.log("시험결과...");
+            }else if(event.target.classList.contains("sexual")){
+                console.log("성적관리...");
+            }
+        }
+    </script>
+</body>
+</html>
