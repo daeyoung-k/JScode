@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>5초 뒤 타임함수가 실행되는데 이 버튼을 누르면 중지됩니다</h2>
+    <button type="button" class="stopTime">스탑</button>
+    <script>
+
+        //timeout함수는 일정시간 뒤에 함수를 실행시킵니다
+        // setTimeout(function(){
+        //     alert("5초후 경고창 출력")
+        // })
+
+        // var stop = setTimeout(function(){
+        //     alert("5초후 경고창 출력");
+        // }, 5000);
+
+        // var stopTime = document.querySelector(".stopTime");
+        // stopTime.onclick = function(){
+        //     clearTimeout(stop);
+        // }
+
+        //핸들러 함수한테 매개변수를 전달하려면?(클로저 형태를 이용하면 됩니다.)
+        setTimeout(handleTime("값"), 3000);
+
+        function handleTime(a){
+
+            //핸들러 함수;            
+            return function(){
+
+            alert("3초뒤 실행됨," + "매개변수값은: " + a)
+            }
+        }
+    </script>
+
+</body>
+</html>

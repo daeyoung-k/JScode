@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>        
+        .tog li {display: inline-block; padding: 10px; border: 1px solid black;}
+        .tog-menu {display: none;}
+        .active {
+            display: block;
+            animation: myfadein 1s ease-in-out; /* 호출할 애니메이션, 지속시간, 옵션 */
+        }
+
+        /* 애니메이션 myfadein */
+        @keyframes myfadein{
+            from{
+                opacity: 0;
+                color: blue;
+            }to{
+                opacity: 1;
+                color: red;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <ul class="tog"> 
+            <li data-id="#tog1">메뉴1</li>
+            <li data-id="#tog2">메뉴2</li>
+            <li data-id="#tog3">메뉴3</li>
+        </ul>
+        <!-- 메뉴에 따라서 보여줄 영역 -->
+        <div class="box">
+            <div class="tog-menu active" id="tog1">토글메뉴1</div>
+            <div class="tog-menu" id="tog2">토글메뉴2</div>
+            <div class="tog-menu" id="tog3">토글메뉴3</div>
+        </div>
+
+        <script>
+            /* 
+            이벤트 위임방식을 이용해서 이벤트를 처리합니다.
+            data-id값을 얻어서 각 아이디에 id에 적합한 태그 class이름에 active를 추가해줍니다.
+            나머지 tog-menu의 active는 지워줍니다.
+             */
+
+            // var tog = document.querySelector(".tog")
+            // var togme = document.querySelectorAll(".tog-menu");
+            // tog.onclick = function(){
+            //     if(event.target.nodeName !== "LI")return;
+
+            //     console.log(event.target.contains)
+            //     if(event.target.dataset.id === "#tog1"){
+            //         togme[0].className = "tog-menu active";
+            //         togme[1].className = "tog-menu";
+            //         togme[2].className = "tog-menu";
+            //         console.log(togme[0].className)
+            //     }else if(event.target.dataset.id === "#tog2"){
+            //         togme[0].className = "tog-menu";
+            //         togme[1].className = "tog-menu active";
+            //         togme[2].className = "tog-menu";
+            //     }else{
+            //         togme[0].className = "tog-menu";
+            //         togme[1].className = "tog-menu";
+            //         togme[2].className = "tog-menu active";
+            //     }
+            // }
+
+            //선생님 풀이
+            var tog = document.querySelector(".tog")
+            var togme = document.querySelectorAll(".tog-menu");
+            tog.onclick = function(){
+                //e.preventDefault(); //만약 a태그였다면 고유 기능삭제
+                if(event.target.nodeName !== "LI")return;
+
+                //active가 포함된 태그에서 active를 전부 삭제.
+                for(var i = 0; i < togme.length; i++){
+                    if(togme[i].classList.contains("active")){ //클래스중에 active가 포함된다면
+                        togme[i].classList.remove("active"); // i번째 클래스리스트에 active삭제
+                    }
+                }
+
+                //태그의 data-id를 얻어와서 현재 실행되는 대상에 add() 추가
+                var target = event.target.dataset.id;
+                document.querySelector(target).classList.add("active"); //클래스이름 active
+
+            }
+
+
+        </script>
+    </section>
+
+    
+</body>
+</html>
