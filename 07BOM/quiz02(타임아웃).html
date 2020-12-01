@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main-banner1 {
+            background: linear-gradient(90deg,#0c151c 1.3125rem,transparent 1%) 50%,linear-gradient(#0c151c 1.3125rem,transparent 1%) 50%,#263747;
+            background-size: 1.5rem 1.5rem;
+            padding: 6rem 0;
+            color: #fff;
+            text-align: center;                        
+        }
+        .main-banner1 h3 {animation: main 1s linear; position: relative; display: none;}
+        .main-banner1 .left {animation: left 1s linear; position: relative; display: none;}
+        .main-banner1 .right {animation: right 1s linear; position: relative; display: none;}
+
+        @keyframes main{
+            from{
+                opacity: 0;
+                top: -100px;
+            }to{
+                opacity: 1;
+                top: 0;
+            }
+        }
+        @keyframes left{
+            from{
+                opacity: 0;
+                left: -100px;
+            }to{
+                opacity: 1;
+                left: 0;
+            }
+        }
+        @keyframes right{
+            from{
+                opacity: 0;
+                right: -100px;
+            }to{
+                opacity: 1;
+                right: 0;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <div class="main-banner1">
+        <h3>제목영역..</h3>
+        <img src="img/1.jpg" width="200" class="left">
+        <img src="img/2.jpg" width="200" class="right">
+    </div>
+
+    <script>
+        setTimeout(maintime, 2000);
+        setTimeout(lefttime, 3000);
+        setTimeout(righttime, 4000);
+
+        function maintime(){
+            var maintime = document.querySelector(".main-banner1")
+            maintime.children[0].style.display = "block"
+        }
+        function lefttime(){
+            var maintime = document.querySelector(".main-banner1")
+            maintime.children[1].style.display = "inline"
+        }
+        function righttime(){
+            var maintime = document.querySelector(".main-banner1")
+            maintime.children[2].style.display = "inline"
+        }
+
+    </script>
+</body>
+</html>
