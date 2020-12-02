@@ -13,12 +13,80 @@
     <script>
 
         function ajax(){
-            fetch("hi.txt").then(function(response) {
 
-                response.text().then(function(text){
-                    alert(text);
-                })
+            // //1st
+            // fetch("hi.txt").then(function(response) {
+
+            //     response.text().then(function(text){
+            //         alert(text);
+            //     })
+            // })
+            
+            /* 
+            Promise는 fetch를 사용했을 때, 결과에 대한 상태정보를 반환해주는 약속된 객체.
+            -pending: 수행중
+            -fullfilled: 성공적 완료
+            -rejected: 실패
+             */
+            // var result = fetch("asdas.txt");
+            // console.log(result)
+
+            //3nd
+            //보통의 경우에는 요청받은 순서대로 처리되는데, ajax다른 함수의 실행과 동시에 실행됩니다(순서를 보장하지 않습니다)
+            //결과를 받아오면 then() 약속된 함수 안에 정의된 콜백함수에 그 실행결과를 넣어줍니다.
+            // var callback = function(){
+            //     console.log("이게 먼저 실행 될까요?")
+            // }
+
+            // fetch("hi.txt").then(callback);
+            //     console.log(1)
+            //     console.log(2)
+
+            //4nd
+            // fetch("hi.txt").then(function(response){
+
+            //     if(response.status != 200){
+            //         alert("네트워크 상에 문제가 발생했습니다.")
+            //         return;
+            //     }
+
+            //     //응답객체의 text() 는 문자열의 형태로 결과를 바꿔서 then안에 콜백함수에 넣어줍니다.
+            //     response.text().then(function(data){
+            //         console.log(data)
+            //     })
+                
+            // })
+
+            //5nd
+            // fetch("hi.json").then(function(response) {
+
+            //     if(response.status != 200){
+            //         alert("네트워크상에 문제가 발생했습니다.")
+            //     } else {
+            //         //응답객체 내용이 json형식이라면 json()를 이용해서 결과를 받아서 사용
+            //         response.json().then(function(data){
+            //             // console.log(data)
+            //             for(var k in data){
+            //                 console.log(k)
+            //                 console.log(data[k])
+            //             }
+            //         })
+            //     }
+            // });
+
+            //6nd
+            //간단하게...
+            fetch("hi.json").then(function(response){
+                return response.json();
+            }).then(function(data){
+                return data.user_id;
+            }).then(function(data){
+                return data;
+            }).then(function(data){
+                console.log(data)
             })
+
+
         }
     </script>
 </body>

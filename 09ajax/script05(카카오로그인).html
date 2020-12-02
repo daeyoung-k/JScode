@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 1. 카카오 SDK 호출(원격으로 호출하거나, 다운로드 받아서 사용) -->
+    <!-- <script src="js/kakao.js"></script> --> <!-- 다운로드 -->
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script> <!-- 원격 -->
+</head>
+<body>
+    
+    <a id="custom-login-btn" href="javascript:loginWithKakao()">
+        <img src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg" width="222"/>
+    </a>
+
+    <script>
+        /* 2. 카카오 SDK 초기화 */
+        Kakao.init('f8f43cced8ccc35b7ca49bc5c318c98c');
+        console.log(Kakao.isInitialized());
+
+        /* 3. 사용방법을 확인하고, 코드를 해석해서 로그인 기능 */
+        function loginWithKakao() {
+            Kakao.Auth.login({
+            success: function(authObj) {
+                //접근 권한 - 어세스 토큰을 저장 (카카오 토큰할당에 관한내용을 참조)
+                // console.log(authObj)
+                
+                Kakao.Auth.setAccessToken(authObj.access_token);
+
+                //4. 사용자 계정정보를 얻는 함수를 호출
+                getInfo();
+            },
+            fail: function(err) {
+                alert(JSON.stringify(err))
+            },
+            })
+        }
+
+        //사용자 계정정보 얻는 기능
+        function getInfo(){
+            Kakao.API.request({
+                url: '/v2/user/me',
+                success: function(res) {
+                console.log(res);
+                //1. 이메일 정보
+                console.log(res.kakao_account.email)
+                //2. 프로필 이미지
+                console.log(res.properties.profile_image)
+                //3. 닉네임
+                console.log(res.properties.nickname)
+                },
+                fail: function(error) {
+                alert(
+                    'login success, but failed to request user information: ' +
+                    JSON.stringify(error)
+                )
+                },
+            })
+        }
+    </script>
+</body>
+</html>
