@@ -14,6 +14,8 @@
         <img src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg" width="222"/>
     </a>
 
+    <button onclick="kakaoLogout()">로그아웃</button>
+
     <script>
         /* 2. 카카오 SDK 초기화 */
         Kakao.init('f8f43cced8ccc35b7ca49bc5c318c98c');
@@ -34,6 +36,16 @@
             fail: function(err) {
                 alert(JSON.stringify(err))
             },
+            })
+        }
+        //5. 어세스토큰을 만료시켜주는 로그아웃
+        function kakaoLogout() {
+            if (!Kakao.Auth.getAccessToken()) {
+                alert('Not logged in.')
+                return
+            }
+                Kakao.Auth.logout(function() {
+                alert('logout ok\naccess token -> ' + Kakao.Auth.getAccessToken())
             })
         }
 

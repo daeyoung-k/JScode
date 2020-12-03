@@ -22,6 +22,7 @@
         function getFetch(gu){
             fetch("http://openAPI.seoul.go.kr:8088/596458557871717737314178697847/json/PublicWiFiPlaceInfo/1/1000/" + gu)
             .then(function(response){
+                console.log(response)
                 return response.json();
             }).then(function(data){
                 console.log(data)
@@ -59,7 +60,7 @@
         //1. 즉시 실행함수
          (function(){
              createGu();
-            //  getFetch();
+             getFetch();
          })();
 
      </script>
