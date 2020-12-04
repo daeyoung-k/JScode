@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var num1 = null;
+        var num2 = null;
+
+        // function ajax(){
+        //     //hi.txt -> hi.json
+
+        //     fetch("hi.txt").then(function(response){
+        //         return response.text();
+        //     }).then(function(data){
+        //         num1 = data; //멤버변수에 데이터 저장
+        //         console.log(data)
+
+        //         fetch("hi.json").then(function(response){
+        //             return response.json();
+        //         }).then(function(data){
+        //         num2 = data; //멤버변수에 데이터 저장
+        //             console.log(data)
+        //         })
+        //     })
+        // }
+
+        async function ajax(){
+            num1 = await fetch("hi.txt").then(function(response){
+                return response.text();
+            })
+            console.log(num1);
+
+            num2 = await fetch("hi.json").then(function(response){
+                return response.json();
+            })
+            console.log(num2)
+        }
+
+
+        (function(){
+            ajax();
+        })();
+    </script>
+</body>
+</html>

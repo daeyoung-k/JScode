@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        // var promise = fetch("kkk123");
+        // console.log(promise);
+
+        /* 
+        프로미스는 자바스크립트에 내장된 내장객체 입니다.
+        프로미스에서는 세가지의 상태 메시지를 갖습니다.
+        pending - 수행중
+        fulfilled - 성공적 완료
+        rejected - 실패
+         */
+
+         //프로미스 생성 - 매개변수로 콜백함수를 전달받고(다시 함수의 매개변수로 resolve, reject 성공실패에 대한 함수를 받습니다)
+         var promise = new Promise(function(success, fail){
+
+            console.log("바로 실행");
+            setTimeout(function(){
+
+                //promise안에서 성공했을 때의 실행
+                success(10);
+
+                //promise안에서 실패햇을 때의 실행
+                // fail(new Error());
+
+            }, 5000); //5초 이후에 실행(다른 서버에 요청을 하고 겨로가를 돌려받는데 5초)
+         })
+         console.log(promise);
+
+         //프로미스의 사용
+         //then은 promise가 정상적으로 실행된다면, 결과를 실행시켜주는 콜백함수
+         //catch은 promise가 실패햇을 때, 결과를 실행시켜주는 콜백함수
+         promise.then(function(data){
+            console.log(data);
+         }).catch(function(error){
+            console.log(error);
+         })
+         
+         //프로미스의 사용2 - then에서의 return은 다시 그결과가 promise이기 때문에 then을 연쇄적으로 사용이 가능
+        var t = promise.then(function(data){
+            console.log(data);
+            return data * 100;
+         }).then(function(data){
+            console.log(data);
+            return data / 5;
+         }).then(function(data){
+             console.log(data);
+         })
+
+         //하나의 화면에서 비동기 콜이 연쇄적으로 2개 이상....
+
+    </script>
+
+</body>
+</html>

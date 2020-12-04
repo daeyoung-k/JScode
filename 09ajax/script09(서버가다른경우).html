@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2>jsp에 서블릿으로 데이터를 요청(응답)</h2>
+
+
+    <button type="button" onclick="ajax()">ajax요청해보기</button>
+    <script>
+
+        function ajax(){
+
+            //fetch의 두번째 인자값에는 비동기통신의 옵션이 들어갑니다.
+            fetch("http://localhost:8181/AJAX/AjaxController",{
+                method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                mode: 'no-cors', // no-cors, cors, *same-origin
+                headers: {
+                    // 'Content-Type': 'application/json', //json 형식의 전송을 의미 (jsp가 json형식을 모른다)
+                    'Content-Type': 'application/x-www-form-urlencoded', //폼 형식의 전송을 의미 (jsp가 폼형식 인식가능)
+                },
+                body: "id=kkk123&name=홍길동",  //JSON.stringify(data), //폼 형식을 지켜서 문자열로 전송 //여기까진 중요
+
+                // cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                // credentials: 'same-origin', // include, *same-origin, omit
+                // redirect: 'follow', // manual, *follow, error
+                // referrer: 'no-referrer', // no-referrer, *client
+            }).then(function(respones){
+                return respones.text(); //문자열로 변경
+            }).then(function(data){
+                console.log(data)
+            })
+        }
+
+
+    </script>
+</body>
+</html>
